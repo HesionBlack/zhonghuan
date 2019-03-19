@@ -1,0 +1,17 @@
+一、学生端登录、注册功能
+
+  1）建表、建库  --->register
+  
+  2)相应register表的实体类，表名和实体类的名称完全一致，表中的字段名和实体类中属性名完全一致。
+  
+  3)registerDao接口
+  
+  4)regitsterDaoImpl中做具体实现
+  public class RegisterDaoImpl extends BaseDaoImpl<Register> implements
+		RegisterDao {
+}
+  5)在dao.properties中声明RegisterDaoImpl的全限定名  (包名.类名)
+  
+  6)分析注册业务
+  
+  

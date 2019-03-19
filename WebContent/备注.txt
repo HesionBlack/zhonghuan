@@ -1,0 +1,9 @@
+1、adminlte：放的adminlte的css\js\img
+2、bootstrap:bootstrap的css\js\fonts
+3、font-awesome:字体
+4、img:当前项目图片
+5、mng:当前项目中后台页面  (列表、新增、编辑)
+6、插件--plugins
+
+*:  目录清晰
+*:  代码简化
