@@ -17,7 +17,7 @@ import com.zhonghuan.dao.common.DaoFactory;
  * @author Administrator
  *
  */
-@WebServlet("/delete")
+@WebServlet("/mng/stu/delete")
 public class StudentDeleteServlet extends HttpServlet {
 
 	protected void doGet(javax.servlet.http.HttpServletRequest req,
@@ -34,12 +34,12 @@ public class StudentDeleteServlet extends HttpServlet {
 		// 获取要删除学生信息ID
 		String id = req.getParameter("id");
 		// 2、执行业务逻辑 ====>删除数据库中id的相应记录
-		StudentDao stuDao = (StudentDao) DaoFactory.getInstance("studnetDao");
+		StudentDao stuDao = (StudentDao) DaoFactory.getInstance("StudentDao");
 		// 根据ID删除数据
 		stuDao.delete(Long.parseLong(id));
 		// 3、返回响应 ---->列表功能（查找全部学生信息）
 		// 重定向
-		resp.sendRedirect(req.getContextPath() + "/list");
+		resp.sendRedirect(req.getContextPath() + "/mng/stu/List");
 	}
 
 }

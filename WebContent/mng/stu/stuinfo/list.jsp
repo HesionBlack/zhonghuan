@@ -1,29 +1,33 @@
+<%@page import="com.zhonghuan.entity.Student"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../icd_meta.jsp"></jsp:include>
-<jsp:include page="../../icd_css.jsp"></jsp:include>
+<jsp:include page="../../../icd_meta.jsp"></jsp:include>
+<jsp:include page="../../../icd_css.jsp"></jsp:include>
 </head>
 <!--  sidebar-collapse fixed -->
-
+<%
+	List<Student> list = (List<Student>)request.getAttribute("list");
+%>
 <body class="hold-transition skin-green sidebar-mini fixed">
 	<div class="wrapper">
-		<jsp:include page="../icd_title.jsp"></jsp:include>
-		<jsp:include page="../icd_left.jsp"></jsp:include>
+		<jsp:include page="../../icd_stu_title.jsp"></jsp:include>
+		<jsp:include page="../../icd_stu_left.jsp"></jsp:include>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					学生信息 <small><jsp:include page="../icd_time.jsp"></jsp:include></small>
+					学生信息 <small><jsp:include page="../../icd_stu_time.jsp"></jsp:include></small>
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="./main.html"><i class="fa fa-home"></i> 首页</a></li>
-					<li><a href="#">系统设置</a></li>
-					<li class="active"><a href="javascript:;">学生信息</a></li>
+					<li><a href="<%=request.getContextPath()%>/mng/stu/home.jsp"><i class="fa fa-home"></i> 首页</a></li>
+					<li><a href="#">学生信息管理</a></li>
+					<li class="active"><a href="javascript:;">报考学生信息管理</a></li>
 				</ol>
 			</section>
 
@@ -96,9 +100,9 @@
 								<h3 class="box-title">数据表格</h3>
 								<div class="box-tools"
 									style="position: absolute; top: 10px; right: 10px">
-									<a type="button" href="form.html"
+									<a type="button" href="<%=request.getContextPath() %>\mng\stu\stuinfo\add.jsp"
 										class="btn btn-flat btn-success pull-left"><i
-										class="fa fa-plus"></i> 添加学生</a>
+										class="fa fa-plus"></i> 添加报考学生信息</a>
 								</div>
 								<!-- /.box-tools -->
 							</div>
@@ -109,43 +113,51 @@
 									<thead>
 										<tr>
 											<th>编号</th>
-											<th>学生姓名</th>
-											<th>发布时间</th>
-											<th>备注</th>
+											<th>报考学生信息</th>
+											<th>性别</th>
+											<th>出生日期</th>
+											<th>联系方式</th>
+											<th>地址</th>
+											<th>所在院校</th>
+											<th>操作</th>
 										</tr>
 									</thead>
 									<tfoot>
-										<tr>
-											<th>编号</th>
-											<th>学生姓名</th>
-											<th>发布时间</th>
-											<th>备注</th>
+										<th>编号</th>
+											<th>报考学生信息</th>
+											<th>性别</th>
+											<th>出生日期</th>
+											<th>联系方式</th>
+											<th>地址</th>
+											<th>所在院校</th>
 											<th>操作</th>
-										</tr>
 									</tfoot>
 									<tbody>
+									    <%
+									     for(int i=0;i<list.size();i++){
+									    	  Student stu = list.get(i);
+									    %>
 										<tr>
-											<td>1</td>
-											<td><a href="detail?id=321">张三</a></td>
-											<td>2018-08-08 09:30</td>
-											<td>天津理工大学中环信息学院</td>
-											<td><a class="a-edit" href="detail?id=321"><i
+											<td><%=stu.getId()%></td>
+											<td><%=stu.getSname()%></td>
+											<td><%
+												if(stu.getGender()){
+													out.print("男");
+												}else{
+													out.print("女");
+												}
+											%></td>
+											<td><%=stu.getBirthday()%></td>
+											<td><%=stu.getMobile()%></td>
+											<td><%=stu.getAddress()%></td>
+											<td><%=stu.getSchool()%></td>
+											<td><a class="a-edit" href="<%=request.getContextPath() %>/mng/stu/detail?id=<%=stu.getId()%>"><i
 													class="fa fa-edit"></i></a>&nbsp;&nbsp; <a class="a-delete"
-												href="delete?id=321" data-toggle="modal"
+												href="<%=request.getContextPath() %>/mng/stu/delete?id=<%=stu.getId()%>" data-toggle="modal"
 												data-target="#deletemodal"> <i class="fa fa-trash-o"></i>
 											</a></td>
 										</tr>
-										<tr>
-											<td>2</td>
-											<td><a href="detail?id=321">李四</a></td>
-											<td>2018-08-08 09:30</td>
-											<td>备注信息</td>
-											<td><a class="a-edit" href="detail?id=21"><i
-													class="fa fa-edit"></i></a>&nbsp;&nbsp; <a class="a-delete"
-												href="delete?id=321" data-toggle="modal"
-												data-target="#deletemodal"> <i class="fa fa-trash-o"></i>
-											</a></td>
-										</tr>
+										<%} %>
 									</tbody>
 								</table>
 							</div>
@@ -176,7 +188,7 @@
 		</div>
 		<!-- /.content-wrapper -->
 
-		<jsp:include page="../icd_foot.jsp"></jsp:include>
+		<jsp:include page="../../icd_stu_foot.jsp"></jsp:include>
 	</div>
 	<!-- ./wrapper -->
 	<!--删除模态框开始--->
@@ -230,7 +242,7 @@
 		<!-- /.modal-dialog -->
 	</div>
 	<!--退出模态框结束--->
-	<jsp:include page="../../icd_js.jsp"></jsp:include>
+	<jsp:include page="../../../icd_js.jsp"></jsp:include>
 
 	<script type="text/javascript">
 		//退出事件

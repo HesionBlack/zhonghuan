@@ -8,49 +8,48 @@
 </head>
 
 <body class="hold-transition login-page">
-	<div class="login-box">
-		<div class="login-logo">
-			<a href="../../index2.html">中环<b>招生考试</b>系统
-		</div>
-		<%
-		String msg = (String)request.getAttribute("msg");
-		%>
-		<div class="login-box-body"
-			style="border-top: 6px solid #00A65A; border-radius: 6px;">
-			<p class="login-box-msg" style="color: red; font-weight: bolder;">学生端后台管理入口</p>
-            <p class="login-box-msg" style="color: red; font-weight: bolder;">${msg}</p>  
-			<form action="login" method="post">
-				<div class="form-group has-feedback">
-					<input type="text" class="form-control" placeholder="用户名">
-					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-				</div>
-				<div class="form-group has-feedback">
-					<input type="password" class="form-control" placeholder="密码">
-					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
-				</div>
-
-				<div class="row">
-					<div class="col-xs-8">
-						<input type="text" class="form-control" id="cc" name="cc"
-							placeholder="验证码">
-					</div>
-					<div class="col-xs-4">
-						<img src="vcServlet" />
-					</div>
-				</div>
-
-				<div class="row" align="center">
-					<div class="col-xs-4 checkbox" style="margin-left: 20px">
-						<a type="submit" href="mng/list.html"
-							class="btn btn-success btn-block btn-flat">登录</a>
-					</div>
-					<div class="col-xs-2" style="margin-top: 10px"></div>
-					<div class="col-xs-4" style="margin-top: 10px;">
-						<button class="btn btn-success btn-block btn-flat btn_register">注册 </a>
-					</div>
-				</div>
-		</div>
-		</form>
+		<div class="login-box">
+			<div class="login-logo">
+				<a href="#">中环<b>招生考试</b>系统</a>
+			</div>
+				<%
+					String msg = (String)request.getAttribute("msg");
+				%>
+			<div class="login-box-body"
+				style="border-top: 6px solid #00A65A; border-radius: 6px;">
+				<p class="login-box-msg" style="color: red; font-weight: bolder;">学生端后台管理入口</p>
+	            <p class="login-box-msg" style="color: red; font-weight: bolder;">${msg}</p>  
+				<form action="<%=request.getContextPath()%>/Login" method="post">
+						<div class="form-group has-feedback">
+							<input type="text" class="form-control" placeholder="用户名" name="usname" id="usname">
+							<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<input type="password" class="form-control" placeholder="密码" name="pwd" id="pwd">
+							<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+						</div>
+		
+						<div class="row">
+							<div class="col-xs-8">
+								<input type="text" class="form-control" id="cc" name="cc"
+									placeholder="验证码">
+							</div>
+							<div class="col-xs-4">
+								<img src="<%=request.getContextPath() %>/vcServlet" />
+							</div>
+						</div>
+		
+						<div class="row" align="center">
+							<div class="col-xs-4 checkbox" style="margin-left: 20px">
+								<input type="submit" class="btn btn-success btn-block btn-flat" value="登录"></a>
+							</div>
+							<div class="col-xs-2" style="margin-top: 10px"></div>
+							<div class="col-xs-4" style="margin-top: 10px;">
+								<button class="btn btn-success btn-block btn-flat btn_register">注册 </button>
+							</div>
+						</div>
+				</form>
+			</div>
 	</div>
 	</div>
 	<jsp:include page="icd_js.jsp"></jsp:include>

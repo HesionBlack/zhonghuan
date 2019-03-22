@@ -16,27 +16,22 @@ import com.zhonghuan.dao.common.DaoFactory;
 import com.zhonghuan.entity.Student;
 
 /**
- * 学生更新业务
- * 
- * @author Administrator
- *
- */
-@WebServlet("/mng/stu/update")
-public class StudentUpdateServlet extends HttpServlet {
-
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		doPost(req, resp);
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-
-		req.setCharacterEncoding("UTF-8");
+* @author Hesion
+* @version 创建时间：2019年3月21日 上午9:53:07
+* 报考学生添加功能
+*/
+@WebServlet("/mng/stu/add")
+public class StudentAddServlet extends HttpServlet{
+   @Override
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	// TODO Auto-generated method stub
+	   doPost(req, resp);
+}
+   @Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	   req.setCharacterEncoding("UTF-8");
 		//1接受参数
-		String id = req.getParameter("id");
 	   //学生报考信息名称
 	   String sname = req.getParameter("sname");
 	   //民族
@@ -72,10 +67,9 @@ public class StudentUpdateServlet extends HttpServlet {
 	   //备注
 	   String memo  = req.getParameter("memo");
 	   String nickname = req.getParameter("nickname");	
-		// 2、执行业务逻辑
+	   //2 处理逻辑业务
 	   StudentDao stuDao = (StudentDao)DaoFactory.getInstance("StudentDao");
 	   Student stu = new Student();
-	   stu.setId(Long.parseLong(id));
 	   stu.setSname(sname);
 	   stu.setNation(nation);
 	   stu.setPolitical(political);
@@ -109,9 +103,8 @@ public class StudentUpdateServlet extends HttpServlet {
 	   stu.setNickname(nickname);
 	   stu.setIdcard(idcard);
 	   
-		stuDao.update(stu);
-		// 3、返回响应--->重新查找，刷新
-		resp.sendRedirect(req.getContextPath()+"/mng/stu/List");
-	}
-
+	   stuDao.save(stu);
+	   //3返回响应
+        resp.sendRedirect(req.getContextPath()+"/mng/stu/List");
+   }
 }

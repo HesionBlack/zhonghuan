@@ -19,7 +19,7 @@ import com.zhonghuan.entity.Student;
  * @author Administrator
  *
  */
-@WebServlet("/list")
+@WebServlet("/mng/stu/List")
 public class StudentListServlet extends HttpServlet {
 
 	@Override
@@ -34,13 +34,13 @@ public class StudentListServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// 1、获取请求数据
 		// 2、执行业务逻辑=====>查询所有的学生信息====》创建StuDao对象
-		StudentDao stuDao = (StudentDao) DaoFactory.getInstance("studnetDao");
+		StudentDao stuDao = (StudentDao) DaoFactory.getInstance("StudentDao");
 		// list中存放所有学生信息
 		List<Student> list = stuDao.findAll();
 		// 3、返回响应====》渲染在jsp界面
 		// 1)把list带值到列表.jsp页面???
 		req.setAttribute("list", list);
-		req.getRequestDispatcher("/stulist.jsp").forward(req, resp);
+		req.getRequestDispatcher("/mng/stu/stuinfo/list.jsp").forward(req, resp);
 
 	}
 }

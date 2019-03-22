@@ -3,26 +3,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../icd_meta.jsp"></jsp:include>
-<jsp:include page="../../icd_css.jsp"></jsp:include>
+<jsp:include page="../../../icd_meta.jsp"></jsp:include>
+<jsp:include page="../../../icd_css.jsp"></jsp:include>
 </head>
 <!--  sidebar-collapse fixed -->
 <body class="hold-transition skin-green sidebar-mini fixed">
 	<div class="wrapper">
-		<jsp:include page="../icd_title.jsp"></jsp:include>
-		<jsp:include page="../icd_left.jsp"></jsp:include>
+		<jsp:include page="../../icd_stu_title.jsp"></jsp:include>
+		<jsp:include page="../../icd_stu_left.jsp"></jsp:include>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					学生信息 <small><jsp:include page="../icd_time.jsp"></jsp:include></small>
+					学生信息 <small><jsp:include page="../../icd_stu_time.jsp"></jsp:include></small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="./main.html"><i class="fa fa-home"></i> 首页</a></li>
-					<li><a href="#">系统设置</a></li>
-					<li class="active"><a href="javascript:;">学生信息</a></li>
+					<li><a href="#">学生信息管理</a></li>
+					<li class="active"><a href="javascript:;">报考学生信息管理</a></li>
 				</ol>
 			</section>
 
@@ -103,100 +103,6 @@
 					<!-- ./col -->
 				</div>
 				<!-- /.row -->
-
-				<!-- /组合查询 -->
-				<!-- Your Page Content Here -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="box box-success">
-							<div class="box-header with-border"
-								style="height: 54px; line-height: 34px">
-								<h3 class="box-title">数据表格</h3>
-								<div class="box-tools"
-									style="position: absolute; top: 10px; right: 10px">
-									<a type="button" href="form.html"
-										class="btn btn-flat btn-success pull-left"><i
-										class="fa fa-plus"></i> 添加产品</a>
-								</div>
-								<!-- /.box-tools -->
-							</div>
-							<!-- /.box-header -->
-							<div class="box-body table-responsive">
-								<table id="example"
-									class="table table-hover table-striped table-bordered">
-									<thead>
-										<tr>
-											<th>编号</th>
-											<th>名称</th>
-											<th>发布时间</th>
-											<th>备注</th>
-										</tr>
-									</thead>
-									<tfoot>
-										<tr>
-											<th>编号</th>
-											<th>名称</th>
-											<th>发布时间</th>
-											<th>备注</th>
-											<th>操作</th>
-										</tr>
-									</tfoot>
-									<tbody>
-										<tr>
-											<td>1</td>
-											<td><a href="detail?id=321">张三</a></td>
-											<td>2017-08-08 09:30</td>
-											<td>天津理工大学</td>
-											<td><a class="a-edit" href="detail?id=321"><i
-													class="fa fa-edit"></i></a>&nbsp;&nbsp; <a class="a-delete"
-												href="delete?id=321" data-toggle="modal"
-												data-target="#deletemodal"> <i class="fa fa-trash-o"></i>
-											</a></td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td><a href="detail?id=321">李四</a></td>
-											<td>2017-08-08 09:30</td>
-											<td>备注信息</td>
-											<td><a class="a-edit" href="detail?id=21"><i
-													class="fa fa-edit"></i></a>&nbsp;&nbsp; <a class="a-delete"
-												href="delete?id=321" data-toggle="modal"
-												data-target="#deletemodal"> <i class="fa fa-trash-o"></i>
-											</a></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<!-- /.box-body -->
-							<div class="box-footer">
-								<div class="pull-right">
-									<div class="pagination-info"
-										style="display: -moz-inline-stack; display: inline-block; padding: 7px 16px; color: #888;">共有58条，每页显示20条</div>
-									<ul class="pagination pagination-flat no-margin pull-right">
-										<li><a href="#">«</a></li>
-										<li><a href="#">‹</a></li>
-										<li><a href="#">1</a></li>
-										<li class="active"><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">›</a></li>
-										<li><a href="#">»</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /.box-footer -->
-						</div>
-						<!-- /.box -->
-					</div>
-				</div>
-
-			</section>
-			<!-- /.content -->
-		</div>
-		<!-- /.content-wrapper -->
-
-		<jsp:include page="../icd_foot.jsp"></jsp:include>
-	</div>
-	<!-- ./wrapper -->
 	<!--删除模态框开始--->
 	<div class="modal modal-danger fade" id="deletemodal">
 		<div class="modal-dialog">
@@ -248,7 +154,7 @@
 		<!-- /.modal-dialog -->
 	</div>
 	<!--退出模态框结束--->
-	<jsp:include page="../../icd_js.jsp"></jsp:include>
+	<jsp:include page="../../../icd_js.jsp"></jsp:include>
 
 	<script type="text/javascript">
 		//退出事件

@@ -18,7 +18,7 @@ import com.zhonghuan.entity.Student;
  * @author Administrator
  *
  */
-@WebServlet("/detail")
+@WebServlet("/mng/stu/detail")
 public class StudentDetailServlet extends HttpServlet {
 
 	protected void doGet(javax.servlet.http.HttpServletRequest req,
@@ -33,12 +33,12 @@ public class StudentDetailServlet extends HttpServlet {
 		// 1、获取请求数据
 		String id = req.getParameter("id");
 		// 2、处理业务逻辑
-		StudentDao stuDao = (StudentDao) DaoFactory.getInstance("studnetDao");
+		StudentDao stuDao = (StudentDao) DaoFactory.getInstance("StudentDao");
 		// 根据ID查询学生数据
 		Student stu = stuDao.findOne(Long.parseLong(id));
 		// 3、返回响应--->请求分派
 		req.setAttribute("stu", stu);
-		req.getRequestDispatcher("/studetail.jsp").forward(req, resp);
+		req.getRequestDispatcher("/mng/stu/stuinfo/detail.jsp").forward(req, resp);
 	}
 
 }

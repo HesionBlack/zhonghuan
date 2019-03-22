@@ -13,4 +13,20 @@ import com.zhonghuan.entity.Register;
 public class RegisterDaoImpl extends BaseDaoImpl<Register> implements
 		RegisterDao {
 
+	@Override
+	public Register loginService(String login, String pwd) {
+		// TODO Auto-generated method stub
+		String sql = "select * from register where login = ? and pwd = ?";
+		Register rg = this.findOne(sql, new Object[] { login,pwd });
+		return rg;
+	}
+	@Override
+	public void updatePwd(Long id, String newpwd) {
+		// TODO Auto-generated method stub
+		String sql = "update register set pwd = ?  where id = ?";
+		this.update(sql, new Object[] { newpwd,id });
+	}
+
+	
+
 }
